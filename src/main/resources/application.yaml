@@ -8,3 +8,10 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+# config jwt
+khang:
+  jwt:
+    base64-secret: sw4SKUTefsiUWl+HDM91jywfWxg2HIAyBNiaMkokHCv75q0MCHZ9hHL78B04Pe15Z0jSYbLpkyhHlPRBVDsQeg==
+    # expriation: 1 day (seconds)
+    token-validity-in-seconds: 86400
