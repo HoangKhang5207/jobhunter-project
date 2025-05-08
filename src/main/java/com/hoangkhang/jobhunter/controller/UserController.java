@@ -1,7 +1,7 @@
 package com.hoangkhang.jobhunter.controller;
 
-import java.util.List;
-
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,12 +11,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hoangkhang.jobhunter.domain.User;
+import com.hoangkhang.jobhunter.domain.dto.ResultPaginationDTO;
 import com.hoangkhang.jobhunter.service.UserService;
+import com.hoangkhang.jobhunter.util.annotation.ApiMessage;
+import com.turkraft.springfilter.boot.Filter;
 
 @RestController
+@RequestMapping("/api/v1")
 public class UserController {
 
     private final UserService userService;
@@ -34,9 +39,12 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<List<User>> fetchAllUsers() {
-        // return ResponseEntity.ok(this.userService.fetchAllUsers());
-        return ResponseEntity.status(HttpStatus.OK).body(this.userService.fetchAllUsers());
+    @ApiMessage("Fetch all users")
+    public ResponseEntity<ResultPaginationDTO> fetchAllUsers(
+            @Filter Specification<User> spec,
+            Pageable pageable) {
+
+        return ResponseEntity.status(HttpStatus.OK).body(this.userService.fetchAllUsers(spec, pageable));
     }
 
     @PostMapping("/users")

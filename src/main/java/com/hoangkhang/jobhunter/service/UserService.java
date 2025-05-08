@@ -2,9 +2,14 @@ package com.hoangkhang.jobhunter.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.hoangkhang.jobhunter.domain.User;
+import com.hoangkhang.jobhunter.domain.dto.Meta;
+import com.hoangkhang.jobhunter.domain.dto.ResultPaginationDTO;
 import com.hoangkhang.jobhunter.repository.UserRepository;
 
 @Service
@@ -44,8 +49,21 @@ public class UserService {
         return this.userRepository.findById(id).orElse(null);
     }
 
-    public List<User> fetchAllUsers() {
-        return this.userRepository.findAll();
+    public ResultPaginationDTO fetchAllUsers(Specification<User> spec, Pageable pageable) {
+        Page<User> page = this.userRepository.findAll(spec, pageable);
+
+        ResultPaginationDTO result = new ResultPaginationDTO();
+
+        Meta meta = new Meta();
+        meta.setPage(pageable.getPageNumber() + 1);
+        meta.setPageSize(pageable.getPageSize());
+        meta.setPages(page.getTotalPages());
+        meta.setTotal(page.getTotalElements());
+
+        result.setMeta(meta);
+        result.setResult(page.getContent());
+
+        return result;
     }
 
     public User handleGetUserByUsername(String username) {
