@@ -9,7 +9,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import com.hoangkhang.jobhunter.domain.RestResponse;
+import com.hoangkhang.jobhunter.domain.response.RestResponse;
 import com.hoangkhang.jobhunter.util.annotation.ApiMessage;
 
 import jakarta.servlet.http.HttpServletResponse;

@@ -1,4 +1,4 @@
-package com.hoangkhang.jobhunter.domain;
+package com.hoangkhang.jobhunter.domain.response;
 
 public class RestResponse<T> {
     private int statusCode;

@@ -1,4 +1,4 @@
-package com.hoangkhang.jobhunter.domain.dto;
+package com.hoangkhang.jobhunter.domain.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

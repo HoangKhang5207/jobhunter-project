@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hoangkhang.jobhunter.domain.Company;
-import com.hoangkhang.jobhunter.domain.dto.CompanyDTO;
-import com.hoangkhang.jobhunter.domain.dto.ResultPaginationDTO;
+import com.hoangkhang.jobhunter.domain.request.ReqCompanyDTO;
+import com.hoangkhang.jobhunter.domain.response.ResultPaginationDTO;
 import com.hoangkhang.jobhunter.service.CompanyService;
 import com.hoangkhang.jobhunter.util.annotation.ApiMessage;
 import com.turkraft.springfilter.boot.Filter;
@@ -47,13 +47,13 @@ public class CompanyController {
     }
 
     @PostMapping("/companies")
-    public ResponseEntity<Company> createCompany(@Valid @RequestBody CompanyDTO companyRequest) {
+    public ResponseEntity<Company> createCompany(@Valid @RequestBody ReqCompanyDTO companyRequest) {
         Company company = this.companyService.handleCreateCompany(companyRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(company);
     }
 
     @PutMapping("/companies")
-    public ResponseEntity<Company> updateCompany(@Valid @RequestBody CompanyDTO companyRequest) {
+    public ResponseEntity<Company> updateCompany(@Valid @RequestBody ReqCompanyDTO companyRequest) {
         return ResponseEntity.status(HttpStatus.OK).body(this.companyService.handleUpdateCompany(companyRequest));
     }
 

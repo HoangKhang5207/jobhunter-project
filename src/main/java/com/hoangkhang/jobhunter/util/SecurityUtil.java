@@ -5,7 +5,7 @@ import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.stereotype.Service;
 
-import com.hoangkhang.jobhunter.domain.dto.ResLoginDTO;
+import com.hoangkhang.jobhunter.domain.response.ResLoginDTO;
 import com.nimbusds.jose.util.Base64;
 
 import java.time.Instant;

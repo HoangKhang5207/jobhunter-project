@@ -1,4 +1,4 @@
-package com.hoangkhang.jobhunter.domain.dto;
+package com.hoangkhang.jobhunter.domain.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CompanyDTO {
+public class ReqCompanyDTO {
     private Long id;
 
     @NotBlank(message = "Trường name không được để trống")

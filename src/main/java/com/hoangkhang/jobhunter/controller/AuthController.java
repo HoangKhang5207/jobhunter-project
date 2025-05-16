@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hoangkhang.jobhunter.domain.User;
-import com.hoangkhang.jobhunter.domain.dto.LoginDTO;
-import com.hoangkhang.jobhunter.domain.dto.ResLoginDTO;
+import com.hoangkhang.jobhunter.domain.request.ReqLoginDTO;
+import com.hoangkhang.jobhunter.domain.response.ResLoginDTO;
 import com.hoangkhang.jobhunter.exception.custom.IdInvalidException;
 import com.hoangkhang.jobhunter.service.UserService;
 import com.hoangkhang.jobhunter.util.SecurityUtil;
@@ -45,7 +45,7 @@ public class AuthController {
     }
 
     @PostMapping("/auth/login")
-    public ResponseEntity<ResLoginDTO> login(@Valid @RequestBody LoginDTO loginDTO) {
+    public ResponseEntity<ResLoginDTO> login(@Valid @RequestBody ReqLoginDTO loginDTO) {
 
         // Nạp input gồm username và password vào Security
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(

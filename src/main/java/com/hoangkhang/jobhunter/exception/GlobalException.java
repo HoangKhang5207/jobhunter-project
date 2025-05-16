@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
-import com.hoangkhang.jobhunter.domain.RestResponse;
+import com.hoangkhang.jobhunter.domain.response.RestResponse;
 import com.hoangkhang.jobhunter.exception.custom.IdInvalidException;
 
 @RestControllerAdvice
