@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import com.hoangkhang.jobhunter.domain.response.RestResponse;
+import com.hoangkhang.jobhunter.exception.custom.StorageException;
 import com.hoangkhang.jobhunter.exception.custom.IdInvalidException;
 
 @RestControllerAdvice
@@ -56,6 +57,16 @@ public class GlobalException {
 
         List<String> errors = fieldErrors.stream().map(f -> f.getDefaultMessage()).toList();
         restResponse.setMessage(errors.size() > 1 ? errors : errors.get(0));
+
+        return ResponseEntity.badRequest().body(restResponse);
+    }
+
+    @ExceptionHandler(value = StorageException.class)
+    public ResponseEntity<RestResponse<Object>> handleFileUploadException(StorageException ex) {
+        RestResponse<Object> restResponse = new RestResponse<>();
+        restResponse.setStatusCode(HttpStatus.BAD_REQUEST.value());
+        restResponse.setError(ex.getMessage());
+        restResponse.setMessage("Exception uploading file");
 
         return ResponseEntity.badRequest().body(restResponse);
     }

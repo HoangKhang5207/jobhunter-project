@@ -33,6 +33,7 @@ public class CompanyController {
     }
 
     @GetMapping("/companies/{id}")
+    @ApiMessage("Fetch company by id")
     public ResponseEntity<Company> fetchCompany(@PathVariable("id") Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(this.companyService.fetchCompanyById(id));
     }

@@ -1,7 +1,6 @@
 package com.hoangkhang.jobhunter.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.hoangkhang.jobhunter.domain.Company;
 import com.hoangkhang.jobhunter.domain.User;
-import com.hoangkhang.jobhunter.domain.response.ResCreateUserDTO;
-import com.hoangkhang.jobhunter.domain.response.ResUpdateUserDTO;
-import com.hoangkhang.jobhunter.domain.response.ResUserDTO;
 import com.hoangkhang.jobhunter.domain.response.ResultPaginationDTO;
+import com.hoangkhang.jobhunter.domain.response.user.ResCreateUserDTO;
+import com.hoangkhang.jobhunter.domain.response.user.ResUpdateUserDTO;
+import com.hoangkhang.jobhunter.domain.response.user.ResUserDTO;
 import com.hoangkhang.jobhunter.repository.UserRepository;
 
 @Service

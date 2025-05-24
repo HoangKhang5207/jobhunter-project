@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hoangkhang.jobhunter.domain.User;
-import com.hoangkhang.jobhunter.domain.response.ResCreateUserDTO;
-import com.hoangkhang.jobhunter.domain.response.ResUpdateUserDTO;
-import com.hoangkhang.jobhunter.domain.response.ResUserDTO;
 import com.hoangkhang.jobhunter.domain.response.ResultPaginationDTO;
+import com.hoangkhang.jobhunter.domain.response.user.ResCreateUserDTO;
+import com.hoangkhang.jobhunter.domain.response.user.ResUpdateUserDTO;
+import com.hoangkhang.jobhunter.domain.response.user.ResUserDTO;
 import com.hoangkhang.jobhunter.exception.custom.IdInvalidException;
 import com.hoangkhang.jobhunter.service.UserService;
 import com.hoangkhang.jobhunter.util.annotation.ApiMessage;

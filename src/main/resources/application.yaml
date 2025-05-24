@@ -13,10 +13,20 @@ spring:
       pageable:
         one-indexed-parameters: true # config pagination start page from 1 instead of 0
 
-# config jwt
+  # config upload file
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
 khang:
+  # config jwt
   jwt:
     base64-secret: sw4SKUTefsiUWl+HDM91jywfWxg2HIAyBNiaMkokHCv75q0MCHZ9hHL78B04Pe15Z0jSYbLpkyhHlPRBVDsQeg==
     # expriation: 1 day (seconds)
     access-token-validity-in-seconds: 86400
     refresh-token-validity-in-seconds: 86400
+
+  # base path
+  upload-file:
+    base-uri: file:///D:/Coding/CongNgheJava_CafeJava/Spring_SpringBoot_Tutorial/spring_restful_hoidanit/upload/
