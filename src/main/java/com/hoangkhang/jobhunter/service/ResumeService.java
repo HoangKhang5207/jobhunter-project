@@ -3,6 +3,7 @@ package com.hoangkhang.jobhunter.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -18,6 +19,11 @@ import com.hoangkhang.jobhunter.domain.response.resume.ResUpdateResumeDTO;
 import com.hoangkhang.jobhunter.repository.JobRepository;
 import com.hoangkhang.jobhunter.repository.ResumeRepository;
 import com.hoangkhang.jobhunter.repository.UserRepository;
+import com.hoangkhang.jobhunter.util.SecurityUtil;
+import com.turkraft.springfilter.converter.FilterSpecification;
+import com.turkraft.springfilter.converter.FilterSpecificationConverter;
+import com.turkraft.springfilter.parser.FilterParser;
+import com.turkraft.springfilter.parser.node.FilterNode;
 
 @Service
 public class ResumeService {
@@ -25,6 +31,12 @@ public class ResumeService {
     private final ResumeRepository resumeRepository;
     private final JobRepository jobRepository;
     private final UserRepository userRepository;
+
+    @Autowired
+    private FilterParser filterParser;
+
+    @Autowired
+    private FilterSpecificationConverter filterSpecificationConverter;
 
     public ResumeService(ResumeRepository resumeRepository, JobRepository jobRepository,
             UserRepository userRepository) {
@@ -78,6 +90,28 @@ public class ResumeService {
         List<ResFetchResumeDTO> resumes = page.getContent().stream().map(item -> getResume(item)).toList();
 
         result.setResult(resumes);
+
+        return result;
+    }
+
+    public ResultPaginationDTO fetchResumeByUser(Pageable pageable) {
+        // query builder
+        String email = SecurityUtil.getCurrentUserLogin().orElse("");
+
+        FilterNode node = this.filterParser.parse("email = '" + email + "'");
+        FilterSpecification<Resume> spec = this.filterSpecificationConverter.convert(node);
+        Page<Resume> page = this.resumeRepository.findAll(spec, pageable);
+
+        ResultPaginationDTO result = new ResultPaginationDTO();
+        ResultPaginationDTO.Meta meta = new ResultPaginationDTO.Meta();
+
+        meta.setPage(pageable.getPageNumber() + 1);
+        meta.setPageSize(pageable.getPageSize());
+        meta.setPages(page.getTotalPages());
+        meta.setTotal(page.getTotalElements());
+
+        result.setMeta(meta);
+        result.setResult(page.getContent());
 
         return result;
     }

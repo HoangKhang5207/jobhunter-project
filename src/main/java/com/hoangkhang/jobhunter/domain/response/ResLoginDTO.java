@@ -1,6 +1,7 @@
 package com.hoangkhang.jobhunter.domain.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.hoangkhang.jobhunter.domain.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class ResLoginDTO {
         private Long id;
         private String name;
         private String email;
+        private Role role;
     }
 
     @Getter
@@ -31,5 +33,15 @@ public class ResLoginDTO {
     @AllArgsConstructor
     public static class UserGetAccount {
         private UserLogin user;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class UserInsideToken {
+        private Long id;
+        private String name;
+        private String email;
     }
 }

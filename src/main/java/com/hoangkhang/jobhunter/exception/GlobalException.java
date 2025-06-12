@@ -16,6 +16,7 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 import com.hoangkhang.jobhunter.domain.response.RestResponse;
 import com.hoangkhang.jobhunter.exception.custom.StorageException;
 import com.hoangkhang.jobhunter.exception.custom.IdInvalidException;
+import com.hoangkhang.jobhunter.exception.custom.PermissionException;
 
 @RestControllerAdvice
 public class GlobalException {
@@ -69,5 +70,15 @@ public class GlobalException {
         restResponse.setMessage("Exception uploading file");
 
         return ResponseEntity.badRequest().body(restResponse);
+    }
+
+    @ExceptionHandler(value = PermissionException.class)
+    public ResponseEntity<RestResponse<Object>> handlePermissionException(PermissionException ex) {
+        RestResponse<Object> restResponse = new RestResponse<>();
+        restResponse.setStatusCode(HttpStatus.FORBIDDEN.value());
+        restResponse.setError(ex.getMessage());
+        restResponse.setMessage("Forbidden");
+
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(restResponse);
     }
 }

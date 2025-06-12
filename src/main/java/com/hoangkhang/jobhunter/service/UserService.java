@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.hoangkhang.jobhunter.domain.Company;
+import com.hoangkhang.jobhunter.domain.Role;
 import com.hoangkhang.jobhunter.domain.User;
 import com.hoangkhang.jobhunter.domain.response.ResultPaginationDTO;
 import com.hoangkhang.jobhunter.domain.response.user.ResCreateUserDTO;
@@ -20,10 +21,12 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final CompanyService companyService;
+    private final RoleService roleService;
 
-    public UserService(UserRepository userRepository, CompanyService companyService) {
+    public UserService(UserRepository userRepository, CompanyService companyService, RoleService roleService) {
         this.userRepository = userRepository;
         this.companyService = companyService;
+        this.roleService = roleService;
     }
 
     public User handleCreateUser(User user) {
@@ -31,6 +34,12 @@ public class UserService {
         if (user.getCompany() != null) {
             Company company = this.companyService.fetchCompanyById(user.getCompany().getId());
             user.setCompany(company);
+        }
+
+        // check role exist
+        if (user.getRole() != null) {
+            Role r = this.roleService.fetchRoleById(user.getRole().getId());
+            user.setRole(r);
         }
 
         return this.userRepository.save(user);
@@ -48,6 +57,12 @@ public class UserService {
             if (userRequest.getCompany() != null) {
                 Company company = this.companyService.fetchCompanyById(userRequest.getCompany().getId());
                 user.setCompany(company);
+            }
+
+            // check role exist
+            if (userRequest.getRole() != null) {
+                Role r = this.roleService.fetchRoleById(userRequest.getRole().getId());
+                user.setRole(r);
             }
 
             return this.userRepository.save(user);
@@ -117,11 +132,18 @@ public class UserService {
     public ResUserDTO convertToResUserDTO(User user) {
         ResUserDTO resUserDTO = new ResUserDTO();
         ResUserDTO.CompanyUser companyUser = new ResUserDTO.CompanyUser();
+        ResUserDTO.RoleUser roleUser = new ResUserDTO.RoleUser();
 
         if (user.getCompany() != null) {
             companyUser.setId(user.getCompany().getId());
             companyUser.setName(user.getCompany().getName());
             resUserDTO.setCompany(companyUser);
+        }
+
+        if (user.getRole() != null) {
+            roleUser.setId(user.getRole().getId());
+            roleUser.setName(user.getRole().getName());
+            resUserDTO.setRole(roleUser);
         }
 
         resUserDTO.setId(user.getId());
