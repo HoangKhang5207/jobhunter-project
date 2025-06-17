@@ -19,6 +19,19 @@ spring:
       max-file-size: 50MB
       max-request-size: 50MB
 
+  # config email with Gmail
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: hoangkhang16112003@gmail.com
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
 khang:
   # config jwt
   jwt:
@@ -29,4 +42,4 @@ khang:
 
   # base path
   upload-file:
-    base-uri: file:///D:/Coding/CongNgheJava_CafeJava/Spring_SpringBoot_Tutorial/spring_restful_hoidanit/upload/
+    base-uri: file:///D:/Coding/CongNgheJava_CafeJava/Spring_SpringBoot_Tutorial/spring_restful/upload/

@@ -21,6 +21,17 @@ import com.hoangkhang.jobhunter.exception.custom.PermissionException;
 @RestControllerAdvice
 public class GlobalException {
 
+    // handle all exceptions
+    @ExceptionHandler(value = Exception.class)
+    public ResponseEntity<RestResponse<Object>> handleAllExceptions(Exception ex) {
+        RestResponse<Object> restResponse = new RestResponse<>();
+        restResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        restResponse.setMessage(ex.getMessage());
+        restResponse.setError("Internal server error");
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(restResponse);
+    }
+
     @ExceptionHandler(value = {
             UsernameNotFoundException.class,
             BadCredentialsException.class,
@@ -29,8 +40,8 @@ public class GlobalException {
     public ResponseEntity<RestResponse<Object>> handleException(Exception ex) {
         RestResponse<Object> restResponse = new RestResponse<>();
         restResponse.setStatusCode(HttpStatus.BAD_REQUEST.value());
-        restResponse.setError(ex.getMessage());
-        restResponse.setMessage("Exception occurred");
+        restResponse.setMessage(ex.getMessage());
+        restResponse.setError("Exception occurred");
 
         return ResponseEntity.badRequest().body(restResponse);
     }
@@ -40,8 +51,8 @@ public class GlobalException {
             NoResourceFoundException ex) {
         RestResponse<Object> restResponse = new RestResponse<>();
         restResponse.setStatusCode(HttpStatus.NOT_FOUND.value());
-        restResponse.setError(ex.getMessage());
-        restResponse.setMessage("Resource not found");
+        restResponse.setMessage(ex.getMessage());
+        restResponse.setError("Resource not found");
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(restResponse);
     }
@@ -66,8 +77,8 @@ public class GlobalException {
     public ResponseEntity<RestResponse<Object>> handleFileUploadException(StorageException ex) {
         RestResponse<Object> restResponse = new RestResponse<>();
         restResponse.setStatusCode(HttpStatus.BAD_REQUEST.value());
-        restResponse.setError(ex.getMessage());
-        restResponse.setMessage("Exception uploading file");
+        restResponse.setMessage(ex.getMessage());
+        restResponse.setError("Exception uploading file");
 
         return ResponseEntity.badRequest().body(restResponse);
     }
@@ -76,8 +87,8 @@ public class GlobalException {
     public ResponseEntity<RestResponse<Object>> handlePermissionException(PermissionException ex) {
         RestResponse<Object> restResponse = new RestResponse<>();
         restResponse.setStatusCode(HttpStatus.FORBIDDEN.value());
-        restResponse.setError(ex.getMessage());
-        restResponse.setMessage("Forbidden");
+        restResponse.setMessage(ex.getMessage());
+        restResponse.setError("Forbidden");
 
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(restResponse);
     }
