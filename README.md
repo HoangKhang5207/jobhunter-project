@@ -61,6 +61,29 @@ JobHunter là RESTful API backend, cho phép:
    cd jobhunter-project
    ```
 
+2. **Cấu hình environment**
+   Tạo file `application.properties` trong `src/main/resources/` với các biến sau:
+
+   ```properties
+   spring.data.mongodb.uri=mongodb://localhost:27017/jobhunter
+   jwt.secret=YourJWTSecretKey
+   jwt.expiration=3600000
+   ```
+
+3. **Cài dependencies & build**
+
+   ```bash
+   mvn clean install
+   ```
+
+4. **Chạy ứng dụng**
+
+   ```bash
+   mvn spring-boot:run
+   ```
+
+   \=> API chạy mặc định trên `http://localhost:8080`
+
 ---
 
 ## 🎬 Demo & Ví dụ sử dụng
@@ -94,21 +117,6 @@ curl -X POST http://localhost:8080/api/jobs \
 GET http://localhost:8080/api/jobs?keyword=Java&location=HCM
 ```
 
----
-
-## 🧪 Testing
-
-Chạy toàn bộ unit & integration tests:
-
-```bash
-mvn test
-```
-
-* **Framework**: JUnit 5, Mockito
-* **Coverage**: 85%+ (mục tiêu)
-
----
-
 ## 🤝 Contributing
 
 1. Fork repo
@@ -124,35 +132,8 @@ mvn test
 
 ## 📬 Liên hệ
 
-* **Email**: [hoangkhang5207@example.com](mailto:hoangkhang16112003@gmail.com)
+* **Email**: [hoangkhang16112003@gmail.com](mailto:hoangkhang16112003@gmail.com)
 * **LinkedIn**: [https://www.linkedin.com/in/khang-nguyen-2k3](https://www.linkedin.com/in/khang-nguyen-2k3/)
 * **GitHub**: [https://github.com/HoangKhang5207](https://github.com/HoangKhang5207)
-
----
-
-## 🚀 Cấu hình environment & Chạy ứng dụng
-
-2. **Cấu hình environment**
-   Tạo file `application.properties` trong `src/main/resources/` với các biến sau:
-
-   ```properties
-   spring.data.mongodb.uri=mongodb://localhost:27017/jobhunter
-   jwt.secret=YourJWTSecretKey
-   jwt.expiration=3600000
-   ```
-
-3. **Cài dependencies & build**
-
-   ```bash
-   mvn clean install
-   ```
-
-4. **Chạy ứng dụng**
-
-   ```bash
-   mvn spring-boot:run
-   ```
-
-   \=> API chạy mặc định trên `http://localhost:8080`
 
 ---
