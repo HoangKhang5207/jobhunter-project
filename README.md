@@ -4,8 +4,8 @@
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-![Java](https://img.shields.io/badge/Java-17-orange)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.1.0-brightgreen)
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.4.4-brightgreen)
 
 ## 📑 Table of Contents
 
@@ -14,7 +14,6 @@
 * [🏗️ Kiến trúc & Công nghệ](#️-kiến-trúc--công-nghệ)
 * [🚀 Cài đặt & Chạy thử](#-cài-đặt--chạy-thử)
 * [🎬 Demo & Ví dụ sử dụng](#-demo--ví-dụ-sử-dụng)
-* [🤝 Contributing](#-contributing)
 * [📬 Liên hệ](#-liên-hệ)
 
 ---
@@ -62,7 +61,7 @@ JobHunter là RESTful API backend, cho phép:
    ```
 
 2. **Cấu hình environment**
-   Tạo file `application.properties` trong `src/main/resources/` với các biến sau:
+   Tạo file `application.yaml` trong `src/main/resources/` với các biến sau:
 
    ```properties
    spring.data.mongodb.uri=mongodb://localhost:27017/jobhunter
@@ -92,12 +91,12 @@ JobHunter là RESTful API backend, cho phép:
 
 ```bash
 # Đăng ký
-curl -X POST http://localhost:8080/api/auth/signup \
+curl -X POST http://localhost:8080/api/v1/auth/register \
   -H "Content-Type: application/json" \
   -d '{"username":"user1","password":"pass123","email":"a@b.com"}'
 
 # Đăng nhập
-curl -X POST http://localhost:8080/api/auth/signin \
+curl -X POST http://localhost:8080/api/v1/auth/login \
   -H "Content-Type: application/json" \
   -d '{"username":"user1","password":"pass123"}'
 ```
@@ -105,7 +104,7 @@ curl -X POST http://localhost:8080/api/auth/signin \
 ### 2. Tạo công việc (Admin)
 
 ```bash
-curl -X POST http://localhost:8080/api/jobs \
+curl -X POST http://localhost:8080/api/v1/jobs \
   -H "Authorization: Bearer <ACCESS_TOKEN>" \
   -H "Content-Type: application/json" \
   -d '{"title":"Java Developer","description":"...","location":"HCM","salary":"15M"}'
@@ -114,21 +113,8 @@ curl -X POST http://localhost:8080/api/jobs \
 ### 3. Tìm việc
 
 ```
-GET http://localhost:8080/api/jobs?keyword=Java&location=HCM
+GET http://localhost:8080/api/v1/jobs?keyword=Java&location=HCM
 ```
-
-## 🤝 Contributing
-
-1. Fork repo
-2. Tạo nhánh feature:
-
-   ```bash
-   git checkout -b feature/YourFeature
-   ```
-3. Commit & push
-4. Mở Pull Request mô tả rõ thay đổi
-
----
 
 ## 📬 Liên hệ
 
