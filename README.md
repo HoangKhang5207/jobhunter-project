@@ -61,13 +61,28 @@ JobHunter là RESTful API backend, cho phép:
    ```
 
 2. **Cấu hình environment**
-   Tạo file `application.yaml` trong `src/main/resources/` với các biến sau:
+   Chỉnh sửa file `application.yaml` trong `src/main/resources/` với các biến sau:
 
-   ```properties
-   spring.data.mongodb.uri=mongodb://localhost:27017/jobhunter
-   jwt.secret=YourJWTSecretKey
-   jwt.expiration=3600000
-   ```
+   ```yaml
+   spring:
+    datasource:
+     url: jdbc:mysql://localhost:3306/YourDatabaseName
+     username: root
+     password: YourMySQLPassword
+     driver-class-name: com.mysql.cj.jdbc.Driver
+    # config email with Gmail
+    mail:
+     host: smtp.gmail.com
+     port: 587
+     username: YourEmail
+     password: YourAppPassword
+   khang:
+   # config jwt
+    jwt:
+     base64-secret: YourJWTSecretKey
+   # base path
+    upload-file:
+     base-uri: YourUploadFilePath
 
 3. **Cài dependencies & build**
 
