@@ -61,6 +61,7 @@ JobHunter là RESTful API backend, cho phép:
    ```
 
 2. **Cấu hình environment**
+
    Chỉnh sửa file `application.yaml` trong `src/main/resources/` với các biến sau:
 
    ```yaml
@@ -84,13 +85,13 @@ JobHunter là RESTful API backend, cho phép:
     upload-file:
      base-uri: YourUploadFilePath
 
-3. **Cài dependencies & build**
+4. **Cài dependencies & build**
 
    ```bash
    mvn clean install
    ```
 
-4. **Chạy ứng dụng**
+5. **Chạy ứng dụng**
 
    ```bash
    mvn spring-boot:run
