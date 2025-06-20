@@ -123,7 +123,7 @@ curl -X POST http://localhost:8080/api/v1/auth/login \
 curl -X POST http://localhost:8080/api/v1/jobs \
   -H "Authorization: Bearer <ACCESS_TOKEN>" \
   -H "Content-Type: application/json" \
-  -d '{"title":"Java Developer","description":"...","location":"HCM","salary":"15M"}'
+  -d '{"name":"Java Developer","description":"...","location":"HCM","salary":"15000000", "quantity": 10, "level": "JUNIOR", "startDate": "2025-05-04T13:55:58.454607Z", "endDate": "2025-06-04T13:55:58.454607Z", "active": true, "skills": [ { "id": 500 }, { "id": 3 } ] }'
 ```
 
 ### 3. Tìm việc
