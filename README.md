@@ -24,7 +24,7 @@ JobHunter là RESTful API backend, cho phép:
 
 * Đăng ký, đăng nhập và phân quyền người dùng qua JWT.
 * Tạo, sửa, xóa và tìm kiếm việc làm (CRUD).
-* Quản lý CV ứng viên, xem lịch sử nộp CV và đăng ký nhận việc làm qua email theo kỹ năng.
+* Quản lý CV ứng viên (HR), xem lịch sử rải CV và đăng ký nhận việc làm qua email theo kỹ năng.
 
 Ứng dụng hướng tới các developer muốn tích hợp nhanh vào hệ thống tìm việc hoặc làm nền cho mobile app.
 
@@ -32,11 +32,24 @@ JobHunter là RESTful API backend, cho phép:
 
 ## ✨ Tính năng
 
-* **Auth & Authorization**: Đăng ký, đăng nhập, refresh token, phân quyền ROLE\_USER / ROLE\_ADMIN.
-* **Job Management**: CRUD công việc với các trường: title, description, location, salary, company,…
-* **Profile**: Ứng viên có thể tạo hồ sơ, cập nhật thông tin cá nhân.
-* **Search & Filter**: Tìm kiếm công việc theo keyword, location, mức lương.
-* **Favorites**: Lưu công việc yêu thích để truy cập nhanh.
+* **Authentication & Authorization**: Đăng ký, đăng nhập, đăng xuất, refresh token, phân quyền theo role và permission với Interceptor.
+* **Job Management**: CRUD công việc với các trường: name, description, location, salary,…
+* **Profile**: Ứng viên có thể rải CV, xem lịch sử rải CV và đăng ký nhận việc làm qua email theo kỹ năng. Trường hợp với role là HR thì chỉ có thể xem
+* **Search & Filter**: Tìm kiếm công việc theo kỹ năng, location.
+* **Người Dùng Chưa Xác Thực**:
+- Đăng Ký / Đăng Nhập
+- Duyệt Danh Sách Công Ty: Xem danh mục các nhà tuyển dụng đã đăng ký.
+- Duyệt Danh Sách Việc Làm: Xem danh sách các tin tuyển dụng hiện có.
+- Tìm Kiếm Việc Làm: Lọc và tìm kiếm vị trí theo kỹ năng và/hoặc địa điểm.
+  
+* **Người Dùng Đã Xác Thực**:
+2.1 Người Dùng Tiêu Chuẩn (Không Phân Quyền Vai Trò):
+- Nộp CV: Tải lên và gửi hồ sơ/CV tới các nhà tuyển dụng.
+- Lịch Sử Ứng Tuyển: Xem lại các lần nộp CV đã thực hiện.
+- Đăng Ký Nhận Email: Đăng ký nhận thông báo việc làm theo kỹ năng.
+
+2.2 Người Dùng Được Phân Quyền (Role & Permission-Based Access):
+Người dùng được gán vai trò và quyền hạn cụ thể, cho phép truy cập các chức năng quản trị (CRUD) hoặc quản lý nâng cao tùy theo vai trò.
 
 ---
 
