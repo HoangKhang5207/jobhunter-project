@@ -32,24 +32,24 @@ JobHunter là RESTful API backend, cho phép:
 
 ## ✨ Tính năng
 
-* **Authentication & Authorization**: Đăng ký, đăng nhập, đăng xuất, refresh token, phân quyền theo role và permission với Interceptor.
-* **Job Management**: CRUD công việc với các trường: name, description, location, salary,…
-* **Profile**: Ứng viên có thể rải CV, xem lịch sử rải CV và đăng ký nhận việc làm qua email theo kỹ năng. Trường hợp với role là HR thì chỉ có thể xem
-* **Search & Filter**: Tìm kiếm công việc theo kỹ năng, location.
-* **Người Dùng Chưa Xác Thực**:
-- Đăng Ký / Đăng Nhập
-- Duyệt Danh Sách Công Ty: Xem danh mục các nhà tuyển dụng đã đăng ký.
-- Duyệt Danh Sách Việc Làm: Xem danh sách các tin tuyển dụng hiện có.
-- Tìm Kiếm Việc Làm: Lọc và tìm kiếm vị trí theo kỹ năng và/hoặc địa điểm.
-  
-* **Người Dùng Đã Xác Thực**:
-2.1 Người Dùng Tiêu Chuẩn (Không Phân Quyền Vai Trò):
-- Nộp CV: Tải lên và gửi hồ sơ/CV tới các nhà tuyển dụng.
-- Lịch Sử Ứng Tuyển: Xem lại các lần nộp CV đã thực hiện.
-- Đăng Ký Nhận Email: Đăng ký nhận thông báo việc làm theo kỹ năng.
+### 1. Người Dùng Chưa Xác Thực
 
-2.2 Người Dùng Được Phân Quyền (Role & Permission-Based Access):
-Người dùng được gán vai trò và quyền hạn cụ thể, cho phép truy cập các chức năng quản trị (CRUD) hoặc quản lý nâng cao tùy theo vai trò.
+* **Đăng Ký / Đăng Nhập**
+* **Duyệt Danh Sách Công Ty**: Xem danh mục các nhà tuyển dụng đã đăng ký.
+* **Duyệt Danh Sách Việc Làm**: Xem danh sách các tin tuyển dụng hiện có.
+* **Tìm Kiếm Việc Làm**: Lọc và tìm kiếm vị trí theo kỹ năng và/hoặc địa điểm.
+
+### 2. Người Dùng Đã Xác Thực
+
+#### 2.1 Người Dùng Tiêu Chuẩn (Không Phân Quyền Vai Trò)
+
+* **Nộp CV**: Tải lên và gửi hồ sơ/CV tới các nhà tuyển dụng.
+* **Lịch Sử Ứng Tuyển**: Xem lại các lần nộp CV đã thực hiện.
+* **Đăng Ký Nhận Email**: Đăng ký nhận thông báo việc làm theo kỹ năng.
+
+#### 2.2 Người Dùng Được Phân Quyền (Role & Permission-Based Access)
+
+* Người dùng được gán vai trò và quyền hạn cụ thể, cho phép truy cập các chức năng quản trị hoặc quản lý nâng cao tùy theo vai trò.
 
 ---
 
