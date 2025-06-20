@@ -1,6 +1,6 @@
 # 📌 JobHunter
 
-> Ứng dụng RESTful API giúp người dùng tìm và quản lý công việc, xây dựng bằng Java Spring Framework và bảo mật với JWT.
+> Ứng dụng RESTful API hỗ trợ người dùng tìm việc trong việc duyệt, tìm kiếm và nộp hồ sơ ứng tuyển, xây dựng bằng Java Spring Framework và bảo mật với JWT.
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
@@ -24,7 +24,7 @@ JobHunter là RESTful API backend, cho phép:
 
 * Đăng ký, đăng nhập và phân quyền người dùng qua JWT.
 * Tạo, sửa, xóa và tìm kiếm việc làm (CRUD).
-* Quản lý hồ sơ ứng viên và lưu công việc yêu thích.
+* Quản lý CV ứng viên, xem lịch sử nộp CV và đăng ký nhận việc làm qua email theo kỹ năng.
 
 Ứng dụng hướng tới các developer muốn tích hợp nhanh vào hệ thống tìm việc hoặc làm nền cho mobile app.
 
