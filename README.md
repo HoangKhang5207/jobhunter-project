@@ -143,7 +143,7 @@ curl -X POST http://localhost:8080/api/v1/jobs \
 ### 3. Tìm việc
 
 ```
-GET http://localhost:8080/api/v1/jobs?filter=Java&location=HCM
+GET http://localhost:8080/api/v1/jobs?page=1&size=6&sort=updatedAt,desc&filter=location in ['HOCHIMINH'] and skills in ['29', '16', '19']
 ```
 
 ## 📬 Liên hệ
