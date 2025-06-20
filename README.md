@@ -123,7 +123,7 @@ JobHunter là RESTful API backend, cho phép:
 # Đăng ký
 curl -X POST http://localhost:8080/api/v1/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"username":"user1","password":"pass123","email":"a@b.com"}'
+  -d '{"name":"user1","password":"pass123","email":"a@b.com", "age": 22, "gender": "MALE", "address": "HCM"}'
 
 # Đăng nhập
 curl -X POST http://localhost:8080/api/v1/auth/login \
