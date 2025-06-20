@@ -49,7 +49,8 @@ JobHunter là RESTful API backend, cho phép:
 
 #### 2.2 Người Dùng Được Phân Quyền (Role & Permission-Based Access)
 
-* Người dùng được gán vai trò và quyền hạn cụ thể, cho phép truy cập các chức năng quản trị hoặc quản lý nâng cao tùy theo vai trò.
+* Người dùng được gán vai trò và quyền hạn cụ thể, cho phép truy cập các chức năng quản trị (CRUD) hoặc quản lý nâng cao tùy theo vai trò.
+* Cụ thể trong dự án gồm 2 vai trò: Admin (có tất cả quyền hạn) và HR (quyền hạn bị hạn chế và chỉ có thể xem được các CV của ứng viên đã ứng tuyển vào vị trí thuộc công ty HR).
 
 ---
 
