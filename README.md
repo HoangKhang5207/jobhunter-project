@@ -50,7 +50,7 @@ JobHunter là RESTful API backend, cho phép:
 #### 2.2 Người Dùng Được Phân Quyền (Role & Permission-Based Access)
 
 * Người dùng được gán vai trò và quyền hạn cụ thể, cho phép truy cập các chức năng quản trị (CRUD) hoặc quản lý nâng cao tùy theo vai trò.
-* Cụ thể trong dự án gồm 2 vai trò: Admin (có tất cả quyền hạn) và HR (quyền hạn bị hạn chế và chỉ có thể xem được các CV của ứng viên đã ứng tuyển vào vị trí thuộc công ty HR).
+* **Cụ thể trong dự án gồm 2 vai trò**: Admin (có tất cả quyền hạn) và HR (quyền hạn bị hạn chế và chỉ có thể xem được các CV của ứng viên đã ứng tuyển vào vị trí thuộc công ty HR).
 
 ---
 
@@ -63,6 +63,7 @@ JobHunter là RESTful API backend, cho phép:
 | **Database**   | MySQL                               |
 | **Build**      | Gradle                              |
 
+* **Database Diagram**: Xem tại https://drive.google.com/drive/folders/1nDBdBfUcKzYh8vGF72dkoS2p2d8jo-Gm?usp=sharing
 ---
 
 ## 🚀 Cài đặt & Chạy thử
